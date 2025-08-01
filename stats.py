@@ -1,22 +1,23 @@
 class Stats:
-    def __init__(self, file_path):
+    def __init__(self, fp):
+        self.FILE_PATH = fp
         self.HEADING = '============ BOOKBOT ============'
-        self.ANALYZING = f'Analyzing book found at {file_path}...'
+        self.ANALYZING = f'Analyzing book found at {self.FILE_PATH}...'
         self.WORD_HEADING = '----------- Word Count ----------'
         self.FOUND = f'Found {self.get_book_word_count()} total words'
         self.CHAR_HEADING = '--------- Character Count -------'
 
-    def get_book_text(self, file_path='books/frankenstein.txt'):
+    def get_book_text(self):
         file_contents = ''
-        with open(file_path) as f:
+        with open(self.FILE_PATH) as f:
             file_contents = f.read()
         return file_contents
 
-    def get_book_word_count(self, file_path = 'books/frankenstein.txt'):
-        words = open(file_path).read().split()
+    def get_book_word_count(self):
+        words = open(self.FILE_PATH).read().split()
         return len(words)
 
-    def get_letter_counts(self, file_path = 'books/frankenstein.txt'):
+    def get_letter_counts(self):
         letter_counts = {}
         for letter in self.get_book_text():
             lower_char = letter.lower()
@@ -36,7 +37,7 @@ class Stats:
         char_counts.sort(reverse=True, key=lambda x: x['num'])
         return char_counts
 
-    def print_report(self, file_path = 'books/frankenstein.txt'):
+    def print_report(self):
         char_counts = self.sort_letter_counts(self.get_letter_counts())
 
         print(self.HEADING)

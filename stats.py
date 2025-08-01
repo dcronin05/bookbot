@@ -3,7 +3,7 @@ class Stats:
         self.HEADING = '============ BOOKBOT ============'
         self.ANALYZING = f'Analyzing book found at {file_path}...'
         self.WORD_HEADING = '----------- Word Count ----------'
-        self.FOUND = f'Found {self.get_book_word_count} total words'
+        self.FOUND = f'Found {self.get_book_word_count()} total words'
         self.CHAR_HEADING = '--------- Character Count -------'
 
     def get_book_text(self, file_path='books/frankenstein.txt'):
@@ -42,7 +42,7 @@ class Stats:
         print(self.HEADING)
         print(self.ANALYZING)
         print(self.WORD_HEADING)
-        print(self.get_book_word_count(file_path))
+        print(self.FOUND)
         print(self.CHAR_HEADING)
         for char in char_counts:
             print(f"{char['char']}: {char['num']}")

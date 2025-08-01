@@ -1,8 +1,8 @@
 from stats import Stats
 
 def main():
-    stats = Stats()
-    print(f'{stats.get_book_word_count()} words found in the document')
+    stats = Stats('books/frankenstein.txt')
+    stats.print_report()
 
 
 if __name__ == "__main__":
